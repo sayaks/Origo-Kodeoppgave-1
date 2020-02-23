@@ -1,3 +1,84 @@
+/* pallette:
+
+#412234
+#ffffff
+#95b8d1
+
+*/
+
+body {
+  font-size: 1.25em;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  background-color: #95b8d1;
+  color: #412234;
+}
+
+/* Stations */
+
+ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+section.station {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 1fr;
+  grid-template-areas:
+    "head head"
+    "num-bike num-dock"
+    "text-bike text-dock"
+  ;
+  margin: 5px;
+  padding: 5px;
+  width: 190px;
+  height: 11em;
+
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+ 
+  background-color: #FFFFFF;
+  border-color: #95B8D1;
+}
+
+h3 {
+  margin: 0px;
+}
+
+section.station header {
+  grid-area: head;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.num,.text {
+  min-width: 75px;
+  margin: 0px 10px;
+}
+
+.num {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.num.bike {
+  grid-area: num-bike;
+}
+.num.dock {
+  grid-area: num-dock;
+}
+.text.bike {
+  grid-area: text-bike;
+}
+.text.dock {
+  grid-area: text-dock;
+}
 .App {
   text-align: center;
 }

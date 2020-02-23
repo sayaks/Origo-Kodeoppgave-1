@@ -6,8 +6,8 @@ const Station = ({station, status}) => {
         <header>
             <h3>{station.name}</h3>
         </header>
-        <div className="bikes">Ledige Sykler</div> <div className="bikes count">{status.num_bikes_available}</div>
-        <div className="docks">Tilgjengelige Låser</div> <div className="docks count">{status.num_docks_available}</div>
+        <div className="text bike">Ledige Sykler</div> <div className="num bike">{status.num_bikes_available}</div>
+        <div className="text dock">Ledige Låser</div> <div className="num dock">{status.num_docks_available}</div>
     </section>
     );
 }

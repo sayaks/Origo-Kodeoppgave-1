@@ -20,7 +20,7 @@ const StationList = () => {
         <ul>
             {status.stations.map((status) => {
                 return (
-                    <li>
+                    <li key={status.station_id}>
                         <Station
                             station={stationsDict[status.station_id]}
                             status={status}
