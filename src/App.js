@@ -1,8 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {useData, STATIONS} from "./api"
 
 function App() {
+  const data = useData(STATIONS);
+  console.log(data)
   return (
     <div className="App">
       <header className="App-header">
