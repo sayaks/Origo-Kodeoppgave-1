@@ -2,7 +2,7 @@ import React from 'react';
 import {useData, STATIONS, STATUS} from "./api"
 import {Station} from "./Station"; 
 
-const StationList = () => {
+const StationList = ({search}) => {
     const stations = useData(STATIONS).data; 
     const status = useData(STATUS).data;
 
@@ -10,20 +10,30 @@ const StationList = () => {
         return <p>Loading...</p>
     }
 
-    const stationsDict = {}
+    var filteredStations = stations.stations;
 
-    for (let i = 0; i < stations.stations.length; i++) {
-       stationsDict[stations.stations[i].station_id] = stations.stations[i];
+    stations.stations.sort((a, b) => a.name.localeCompare(b.name));
+
+    const statusDict = {}
+
+    for (let i = 0; i < status.stations.length; i++) {
+        statusDict[status.stations[i].station_id] = status.stations[i];
+    }
+
+
+    if (search) {
+        filteredStations = stations.stations.filter((station) => station.name.toLowerCase().startsWith(search.toLowerCase()));
     }
 
     return (
         <ul>
-            {status.stations.map((status) => {
+            {filteredStations
+                .map((station) => {
                 return (
-                    <li key={status.station_id}>
+                    <li key={station.station_id}>
                         <Station
-                            station={stationsDict[status.station_id]}
-                            status={status}
+                            station={station}
+                            status={statusDict[station.station_id]}
                         />
                     </li>
                 );
