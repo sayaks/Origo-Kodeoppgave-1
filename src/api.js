@@ -12,28 +12,27 @@ const INIT = {
     } 
 }
 
+const updateSystemInfo = (setUpdate) => {
+    fetch(API + SYSTEM, INIT)
+        .then(response => response.json())
+        .then(data => setUpdate(data.last_updated))
+};
+
 const useData = (which) => {
     const [lastUpdate, setUpdate] = useState(0);
     const [data, setData] = useState({});
 
-    const updateSystemInfo = () => {
-        fetch(API + SYSTEM, INIT)
-            .then(response => response.json())
-            .then(data => setUpdate(data.last_updated))
-            console.log(lastUpdate)
-    };
-
-    useEffect(() => {updateSystemInfo()}, []);
+    useEffect(() => updateSystemInfo(setUpdate), []);
 
     useEffect(() => {
         fetch(API + which, INIT)
         .then(response => response.json())
         .then(data => setData(data))
-    }, [lastUpdate]);
+    }, [lastUpdate, which]);
 
 
     useEffect(() => {
-        const interval = setInterval(updateSystemInfo, 10000);
+        const interval = setInterval(() => updateSystemInfo(setUpdate), 10000);
 
         return () => {
             clearInterval(interval);
