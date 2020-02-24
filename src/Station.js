@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * A react component that displays the station and status.
+ * 
+ * @param {object} station The station info
+ * @param {object} status The station's availability status
+ */
 const Station = ({station, status}) => {
     return (
     <section className="station">

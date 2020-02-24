@@ -2,6 +2,12 @@ import React from 'react';
 import {useData, STATIONS, STATUS} from "./api"
 import {Station} from "./Station"; 
 
+/**
+ * A react component which displays a list of stations from the endpoint.
+ * Sorted alphabetically and filtered by a search string.
+ * 
+ * @param {string} search The search string to filter stations by
+ */
 const StationList = ({search}) => {
     const stations = useData(STATIONS).data; 
     const status = useData(STATUS).data;

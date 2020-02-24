@@ -12,12 +12,19 @@ const INIT = {
     } 
 }
 
+
 const updateSystemInfo = (setUpdate) => {
     fetch(API + SYSTEM, INIT)
         .then(response => response.json())
         .then(data => setUpdate(data.last_updated))
 };
 
+/**
+ * A hook which returns the data associated with the API-endpoint,
+ * and automatically polls the API for updates every 10 seconds.
+ * 
+ * @param {string} which What API-endpoint to reach
+ */
 const useData = (which) => {
     const [lastUpdate, setUpdate] = useState(0);
     const [data, setData] = useState({});

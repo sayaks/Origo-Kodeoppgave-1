@@ -3,7 +3,6 @@ import './App.css';
 import {StationList} from "./StationList";
 
 const App = () => {
-
   const [search, setSearch] = useState("");
 
   return (
