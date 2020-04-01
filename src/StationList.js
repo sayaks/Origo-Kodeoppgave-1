@@ -7,7 +7,7 @@ import {Station} from "./Station";
  * 
  * @param {string} search The search string to filter stations by
  */
-const StationList = ({filteredStations, statusDict}) => {
+const StationList = ({filteredStations, statusDict, selected, selectionCallback}) => {
     if (!filteredStations) {
         return <p>Loading...</p>
     }
@@ -19,6 +19,8 @@ const StationList = ({filteredStations, statusDict}) => {
                 return (
                     <li key={station.station_id}>
                         <Station
+                            selected={station.station_id === selected}
+                            selectionCallback={selectionCallback}
                             station={station}
                             status={statusDict[station.station_id]}
                         />
