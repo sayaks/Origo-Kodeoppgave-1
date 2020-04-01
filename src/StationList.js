@@ -1,5 +1,4 @@
 import React from 'react';
-import {useData, STATIONS, STATUS} from "./api"
 import {Station} from "./Station"; 
 
 /**
@@ -8,27 +7,9 @@ import {Station} from "./Station";
  * 
  * @param {string} search The search string to filter stations by
  */
-const StationList = ({search}) => {
-    const stations = useData(STATIONS).data; 
-    const status = useData(STATUS).data;
-
-    if (!stations || !status) {
+const StationList = ({filteredStations, statusDict}) => {
+    if (!filteredStations) {
         return <p>Loading...</p>
-    }
-
-    var filteredStations = stations.stations;
-
-    stations.stations.sort((a, b) => a.name.localeCompare(b.name));
-
-    const statusDict = {}
-
-    for (let i = 0; i < status.stations.length; i++) {
-        statusDict[status.stations[i].station_id] = status.stations[i];
-    }
-
-
-    if (search) {
-        filteredStations = stations.stations.filter((station) => station.name.toLowerCase().startsWith(search.toLowerCase()));
     }
 
     return (

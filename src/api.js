@@ -49,4 +49,26 @@ const useData = (which) => {
     return data;
 }
 
-export {useData, STATIONS, STATUS}
+const useFilteredData = (search, stations, status) => {
+    if (!stations || !status) {
+        return [null, null];
+    }
+
+    var filteredStations = stations.stations;
+
+    stations.stations.sort((a, b) => a.name.localeCompare(b.name));
+
+    const statusDict = {}
+
+    for (let i = 0; i < status.stations.length; i++) {
+        statusDict[status.stations[i].station_id] = status.stations[i];
+    }
+
+    if (search) {
+        filteredStations = stations.stations.filter((station) => station.name.toLowerCase().startsWith(search.toLowerCase()));
+    }
+
+    return [filteredStations, statusDict];
+}
+
+export {useData, useFilteredData, STATIONS, STATUS}

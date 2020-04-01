@@ -1,0 +1,3 @@
+const api_key = "<your key here>";
+
+export {api_key}
