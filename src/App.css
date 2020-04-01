@@ -8,7 +8,6 @@
 
 body {
   font-size: 1.25em;
-  max-width: 900px;
   margin: auto;
   text-align: center;
   background-color: #95b8d1;
@@ -17,7 +16,7 @@ body {
 
 input {
   font-size: 1.25em;
-  width: 40%;
+  width: 90%;
   margin-top: 20px;
   color: #412234;
 }
@@ -26,6 +25,7 @@ input {
 
 ul {
   display: flex;
+  padding: 0;
   list-style-type: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -88,6 +88,54 @@ section.station header {
 }
 .App {
   text-align: center;
+}
+
+/* Map */
+
+.mapdiv {
+  margin: 10px auto;
+  width: 90vw;
+  height: 50vh;
+}
+
+@media only screen and (orientation: landscape) {
+  .App {
+    display: grid;
+    grid-template-areas: 
+      "map search"
+      "map list";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  input {
+    grid-area: search;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  ul {
+    grid-area: list;
+    padding: 0;
+  }
+
+  .mapdiv {
+    position: fixed;
+    grid-area: map;
+    margin: 5vh 2.5vw;
+    width: 45vw;
+    height: 90vh;
+  }
+}
+
+.marker {
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #412234;
+
+  background-color: #95B8D1;
+  width: 2em;
+  font-weight: bold;
 }
 
 .App-logo {

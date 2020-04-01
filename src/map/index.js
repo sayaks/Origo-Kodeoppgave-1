@@ -17,7 +17,7 @@ const DEFAULT_ZOOM = 11;
 const Map = ({center, zoom, filteredStations, statusDict}) => {
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div className="mapdiv">
         <GoogleMapReact
           bootstrapURLKeys={{ key: api_key }}
           defaultCenter={center || DEFAULT_CENTER}
