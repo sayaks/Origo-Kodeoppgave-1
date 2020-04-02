@@ -5,6 +5,8 @@ import React from 'react';
  * 
  * @param {object} station The station info
  * @param {object} status The station's availability status
+ * @param {boolean} selected Whether the station has been selected by the user
+ * @param {function} selectionCallback The function to call with station id when it is clicked 
  */
 const Station = ({station, status, selected, selectionCallback}) => {
     return (

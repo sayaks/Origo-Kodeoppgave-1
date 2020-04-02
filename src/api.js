@@ -25,7 +25,7 @@ const updateSystemInfo = (setUpdate) => {
  * 
  * @param {string} which What API-endpoint to reach
  */
-const useData = (which) => {
+const useData = (which, refreshRate) => {
     const [lastUpdate, setUpdate] = useState(0);
     const [data, setData] = useState({});
 
@@ -39,7 +39,7 @@ const useData = (which) => {
 
 
     useEffect(() => {
-        const interval = setInterval(() => updateSystemInfo(setUpdate), 10000);
+        const interval = setInterval(() => updateSystemInfo(setUpdate), refreshRate || 10000);
 
         return () => {
             clearInterval(interval);
@@ -71,4 +71,4 @@ const useFilteredData = (search, stations, status) => {
     return [filteredStations, statusDict];
 }
 
-export {useData, useFilteredData, STATIONS, STATUS}
+export {useData, useFilteredData, API, STATIONS, STATUS, SYSTEM}

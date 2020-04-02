@@ -34,8 +34,6 @@ const App = () => {
       setSearch(station.name);
     }
 
-
-
   }, [selected])
 
   return (
