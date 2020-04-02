@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {useData, useFilteredData, STATIONS, STATUS} from "./api"
 import {Map} from "./map";
-import {StationList} from "./StationList";
-
+import {StationList} from "./station";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -16,7 +15,6 @@ const App = () => {
       setSelected(id);
     }
   }
-
 
   const stations = useData(STATIONS).data; 
   const status = useData(STATUS).data;
