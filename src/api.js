@@ -21,9 +21,10 @@ const updateSystemInfo = (setUpdate) => {
 
 /**
  * A hook which returns the data associated with the API-endpoint,
- * and automatically polls the API for updates every 10 seconds.
+ * and automatically polls the API for updates every 10 seconds by default.
  * 
  * @param {string} which What API-endpoint to reach
+ * @param {int} refreshRate How many milliseconds between each update
  */
 const useData = (which, refreshRate) => {
     const [lastUpdate, setUpdate] = useState(0);
@@ -37,7 +38,6 @@ const useData = (which, refreshRate) => {
         .then(data => setData(data))
     }, [lastUpdate, which]);
 
-
     useEffect(() => {
         const interval = setInterval(() => updateSystemInfo(setUpdate), refreshRate || 10000);
 
@@ -50,10 +50,10 @@ const useData = (which, refreshRate) => {
 }
 
 /**
- * Sort and filter the stations array, and create a map of station ids to statuses
- * @param {string} search 
- * @param {array} stations 
- * @param {dict} status 
+ * A hook which sorts and filters the stations array, and also creates a map of station ids to statuses.
+ * @param {string} search The string to search by
+ * @param {array} stations Stations to search through
+ * @param {array} status Statuses of all the stations 
  * @returns {array} the filtered stations and status dictionary 
  */
 const useFilteredData = (search, stations, status) => {

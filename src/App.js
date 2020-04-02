@@ -4,6 +4,9 @@ import {useData, useFilteredData, STATIONS, STATUS} from "./api"
 import {Map} from "./map";
 import {StationList} from "./station";
 
+/**
+ * The main component of the app, it sets up getting data from the API-endpoints and creates the map.
+ */
 const App = () => {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState(null);
