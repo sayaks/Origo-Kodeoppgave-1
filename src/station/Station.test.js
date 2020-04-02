@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import {Station} from './Station';
+import React from "react";
+import { render } from "@testing-library/react";
+import {Station} from "./Station";
 
-test('displays station info in station box', () =>{
+test("displays station info in station box", () =>{
     const fakeStation = {name: "foo", station_id: 100};
     const fakeStatus = {num_bikes_available: 33, num_docks_available: 66}
     const fakeFunction = () => {};

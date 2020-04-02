@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import { API, STATIONS, STATUS, SYSTEM, useData, useFilteredData } from './api';
+import { API, STATIONS, STATUS, SYSTEM, useData, useFilteredData } from "./api";
 
 const TEST_ENDPOINT = "foo";
 

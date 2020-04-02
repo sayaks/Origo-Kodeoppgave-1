@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import "./App.css";
 import {useData, useFilteredData, STATIONS, STATUS} from "./api"
 import {Map} from "./map";
 import {StationList} from "./station";
@@ -32,7 +32,7 @@ const App = () => {
       setSearch(station.name);
     }
 
-  }, [selected])
+  }, [selected, stations])
 
   return (
     <div className="App">

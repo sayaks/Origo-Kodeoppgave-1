@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const API = "https://gbfs.urbansharing.com/oslobysykkel.no/";
 const SYSTEM = "system_information.json";
@@ -49,6 +49,13 @@ const useData = (which, refreshRate) => {
     return data;
 }
 
+/**
+ * Sort and filter the stations array, and create a map of station ids to statuses
+ * @param {string} search 
+ * @param {array} stations 
+ * @param {dict} status 
+ * @returns {array} the filtered stations and status dictionary 
+ */
 const useFilteredData = (search, stations, status) => {
     if (!stations || !status) {
         return [null, null];

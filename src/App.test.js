@@ -1,9 +1,9 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 import { unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import App from './App';
-import { API, STATIONS, STATUS, SYSTEM, useData, useFilteredData } from './api';
+import App from "./App";
+import { API, STATIONS, STATUS, SYSTEM, useData, useFilteredData } from "./api";
 
 const fakeStations = {
   last_updated: 10,

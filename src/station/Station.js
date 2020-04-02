@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * A react component that displays the station and status.
